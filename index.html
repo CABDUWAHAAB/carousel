@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootcamp Carousel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(120deg, #4339F2 0%, #38BDF8 100%);
+            padding: 2rem;
+            color: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .categories {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .category {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .category:hover {
+            opacity: 0.8;
+        }
+
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease;
+            gap: 1rem;
+        }
+
+        .card {
+            flex: 0 0 calc(100% - 1rem);
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            color: black;
+        }
+
+        @media (min-width: 768px) {
+            .card {
+                flex: 0 0 calc(50% - 1rem);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .card {
+                flex: 0 0 calc(33.333% - 1rem);
+            }
+        }
+
+        .limited-seats {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #f0f0f0;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .limited-seats::after {
+            content: "";
+            width: 8px;
+            height: 8px;
+            background: #4339F2;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .remote {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .details {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .detail {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #444;
+        }
+
+        .apply-btn {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background: #4339F2;
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            margin-top: 1.5rem;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+
+        .apply-btn:hover {
+            opacity: 0.9;
+        }
+
+        .carousel-buttons {
+            position: absolute;
+            right: 0;
+            bottom: -3rem;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .carousel-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid white;
+            background: transparent;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+
+        .carousel-btn:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .carousel-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Apply for your Bootcamp</h1>
+        <p class="subtitle">The future is calling, are you picking up? Don't let this one go to voicemail. It's time to check out our bootcamps and reserve your spot.</p>
+        
+        <div class="categories">
+            <a href="#" class="category">Web development</a>
+            <a href="#" class="category">Data analytics</a>
+            <a href="#" class="category">UX/UI Design</a>
+            <a href="#" class="category">Digital Marketing</a>
+            <a href="#" class="category">Data Science & Machine Learning</a>
+            <a href="#" class="category">Artificial Intelligence</a>
+            <a href="#" class="category">DevOps & CIo</a>
+        </div>
+
+        <div class="carousel-container">
+            <div class="carousel">
+                <div class="card">
+                    <div class="limited-seats">Limited seats</div>
+                    <h2>Web development</h2>
+                    <p class="remote">Remote</p>
+                    <div class="details">
+                        <div class="detail">📅 Feb 17 - Apr 18</div>
+                        <div class="detail">⏰ Full time - (9 Weeks)</div>
+                        <div class="detail">📍 Remote/Online - English</div>
+                        <div class="detail">🌍 Central European Time (CET)</div>
+                    </div>
+                    <button class="apply-btn">Apply now</button>
+                </div>
+
+                <div class="card">
+                    <h2>Web development</h2>
+                    <p class="remote">Remote</p>
+                    <div class="details">
+                        <div class="detail">📅 Mar 31 - May 30</div>
+                        <div class="detail">⏰ Full time - (9 Weeks)</div>
+                        <div class="detail">📍 Remote/Online - English</div>
+                        <div class="detail">🌍 Central European Time (CET)</div>
+                    </div>
+                    <button class="apply-btn">Apply now</button>
+                </div>
+
+                <div class="card">
+                    <h2>Web development</h2>
+                    <p class="remote">Remote</p>
+                    <div class="details">
+                        <div class="detail">📅 Apr 8 - Oct 4</div>
+                        <div class="detail">⏰ Part time - (26 Weeks)</div>
+                        <div class="detail">📍 Remote/Online - English</div>
+                        <div class="detail">🌍 Central European Time (CET)</div>
+                    </div>
+                    <button class="apply-btn">Apply now</button>
+                </div>
+
+                <div class="card">
+                    <h2>Web development</h2>
+                    <p class="remote">Remote</p>
+                    <div class="details">
+                        <div class="detail">📅 May 5 - Jul 4</div>
+                        <div class="detail">⏰ Full time - (9 Weeks)</div>
+                        <div class="detail">📍 Remote/Online - English</div>
+                        <div class="detail">🌍 Central European Time (CET)</div>
+                    </div>
+                    <button class="apply-btn">Apply now</button>
+                </div>
+            </div>
+
+            <div class="carousel-buttons">
+                <button class="carousel-btn prev" disabled>←</button>
+                <button class="carousel-btn next">→</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const carousel = document.querySelector('.carousel');
+        const cards = document.querySelectorAll('.card');
+        const prevBtn = document.querySelector('.prev');
+        const nextBtn = document.querySelector('.next');
+
+        let currentIndex = 0;
+        let cardWidth;
+        let maxIndex;
+
+        function updateCarousel() {
+            cardWidth = cards[0].offsetWidth + 16; // Including gap
+            const cardsPerView = Math.floor(carousel.offsetWidth / cardWidth);
+            maxIndex = cards.length - cardsPerView;
+            
+            carousel.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+            
+            prevBtn.disabled = currentIndex === 0;
+            nextBtn.disabled = currentIndex >= maxIndex;
+        }
+
+        function moveCarousel(direction) {
+            currentIndex = Math.max(0, Math.min(currentIndex + direction, maxIndex));
+            updateCarousel();
+        }
+
+        prevBtn.addEventListener('click', () => moveCarousel(-1));
+        nextBtn.addEventListener('click', () => moveCarousel(1));
+
+        // Initialize and handle resize
+        updateCarousel();
+        window.addEventListener('resize', updateCarousel);
+    </script>
+</body>
+</html>
